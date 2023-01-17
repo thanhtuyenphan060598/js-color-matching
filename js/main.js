@@ -137,9 +137,9 @@ function resetGame() {
 
   hidePlayAgainButton()
   setTimerText('')
-
   initColors()
   startTimer()
+  setBackgroundColor('goldenrod')
 }
 
 function attachEventForPlayAgainButton() {
