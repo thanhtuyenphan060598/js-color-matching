@@ -4,6 +4,7 @@ import {
   getColorElementList,
   getInActiveColorList,
   getPlayAgainButton,
+  getColorBackground,
 } from './selectors.js'
 import {
   createTimer,
@@ -59,6 +60,7 @@ function handleColorClick(liElement) {
 
   if (isMatch) {
     // check win
+    setBackgroundColor(firstColor)
     const isWin = getInActiveColorList().length === 0
     if (isWin) {
       //show replay
@@ -88,6 +90,14 @@ function handleColorClick(liElement) {
       gameStatus = GAME_STATUS.PLAYING
     }
   }, 500)
+}
+
+function setBackgroundColor(color) {
+  const backgroundElement = getColorBackground()
+
+  if (backgroundElement) {
+    backgroundElement.style.backgroundColor = color
+  }
 }
 
 function initColors() {
